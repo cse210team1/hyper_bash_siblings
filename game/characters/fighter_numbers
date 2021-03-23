@@ -1,0 +1,36 @@
+Ground speed = the fighter's speed while in contact with the platform
+Air speed = the fighter's speed while not in contact with the platform
+A attack = the force of the fighter's faster attack
+B attack = the force of the fighter's stronger attack
+When a fighter is hit, multiply the force of the attack by their damage multiplier to get the increase in their damage score
+Damage score corresponds directly to knockback.
+
+
+"Alice":
+ground_speed = 10
+air_speed = 8
+a_attack = 7.5
+b_attack = 10
+damage_multiplier = 1
+
+
+"Bob":
+ground_speed = 7.5
+air_speed = 6.5
+a_attack = 10
+b_attack = 12.5
+damage_multiplier = 1
+
+"Robot":
+ground_speed = 11.5
+air_speed = 5.5
+a_attack = 10
+b_attack = 12.5
+damage_multiplier = 2
+
+"Zombie":
+ground_speed = 6
+air speed = 6
+a_attack = 6
+b_attack = 8
+damage_multiplier = 0.5
