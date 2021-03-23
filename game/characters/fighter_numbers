@@ -6,31 +6,31 @@ When a fighter is hit, multiply the force of the attack by their damage multipli
 Damage score corresponds directly to knockback.
 
 
-"Alice":
-ground_speed = 10
-air_speed = 8
-a_attack = 7.5
-b_attack = 10
-damage_multiplier = 1
+alice =
+{"ground_speed" : 10
+"air_speed" : 8
+"a_attack" : 7.5
+"b_attack" : 10
+"damage_multiplier" : 1}
 
 
-"Bob":
-ground_speed = 7.5
-air_speed = 6.5
-a_attack = 10
-b_attack = 12.5
-damage_multiplier = 1
+bob = 
+{"ground_speed" : 7.5
+"air_speed" : 6.5
+"a_attack" : 10
+"b_attack" : 12.5
+"damage_multiplier" : 1}
 
-"Robot":
-ground_speed = 11.5
-air_speed = 5.5
-a_attack = 10
-b_attack = 12.5
-damage_multiplier = 2
+robot =
+{"ground_speed" : 11.5
+"air_speed" : 5.5
+"a_attack" : 10
+"b_attack" : 12.5
+"damage_multiplier" : 2}
 
-"Zombie":
-ground_speed = 6
-air speed = 6
-a_attack = 6
-b_attack = 8
-damage_multiplier = 0.5
+zombie =
+{"ground_speed" : 6
+"air_speed" : 6
+"a_attack" : 6
+"b_attack" : 8
+"damage_multiplier" : 0.5}
