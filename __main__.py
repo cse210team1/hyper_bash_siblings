@@ -11,7 +11,7 @@ from game.setup_game_action import SetupGameAction
 
 from game.brick import Brick
 from game.director import Director
-from game.paddle import Paddle
+from game.player import Player
 
 
 def main():
@@ -19,9 +19,9 @@ def main():
     # create the cast {key: tag, value: list}
     cast = {}
 
-    cast["paddle"] = []
-    cast["paddle"].append(Paddle(300, 700))
-    cast["paddle"].append(Paddle(600, 700))
+    cast["player"] = []
+    cast["player"].append(Player(600, 700))
+    cast["player"].append(Player(300, 700))
 
 
     cast["bricks"] = []

@@ -11,7 +11,7 @@ class DrawActorsAction(Action):
     """
 
     def execute(self, cast, args, director):
-        for paddle in cast["paddle"]:
+        for paddle in cast["player"]:
             paddle.draw()
         for brick in cast["bricks"]:
             brick.draw()

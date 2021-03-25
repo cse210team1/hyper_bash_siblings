@@ -26,6 +26,9 @@ class Director(arcade.Window):
         self.right_pressed = False
         self.up_pressed = False
         self.down_pressed = False
+        self.a_pressed  = False
+        self.d_pressed = False
+        self.w_pressed = False
 
     def direct_scene(self, cast, script):
         self._cast = cast
@@ -45,6 +48,12 @@ class Director(arcade.Window):
             self.right_pressed = True
         elif key == arcade.key.UP:
             self.up_pressed = True
+        if key == arcade.key.A:
+            self.a_pressed = True
+        elif key == arcade.key.D:
+            self.d_pressed = True
+        elif key == arcade.key.W:
+            self.w_pressed = True
             
     def on_key_release(self, key, modifiers):
         # args = { "key": key, "modifiers": modifiers }
@@ -55,6 +64,12 @@ class Director(arcade.Window):
             self.right_pressed = False
         elif key == arcade.key.UP:
             self.up_pressed = False
+        if key == arcade.key.A:
+            self.a_pressed = False
+        elif key == arcade.key.D:
+            self.d_pressed = False
+        elif key == arcade.key.W:
+            self.w_pressed = False
         
     def on_mouse_drag(self, x, y, dx, dy, buttons, _):
         args = { "x": x, "y": y, "dx": dx, "dy": dy, "buttons": buttons }

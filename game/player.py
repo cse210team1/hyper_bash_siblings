@@ -2,7 +2,7 @@ from game import constants
 
 import arcade
 
-class Paddle(arcade.Sprite):
+class Player(arcade.Sprite):
     def __init__(self, start_x, start_y):
         super().__init__(":resources:images/animated_characters/male_adventurer/maleAdventurer_idle.png")
         self.center_x = start_x

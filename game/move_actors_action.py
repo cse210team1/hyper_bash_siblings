@@ -17,34 +17,64 @@ class MoveActorsAction(Action):
 
     def execute(self, cast, args, director):
         self.physics_engine.step()
-        is_on_ground = self.physics_engine.is_on_ground(cast["paddle"][0])
+        is_on_ground1 = self.physics_engine.is_on_ground(cast["player"][0])
+        is_on_ground2 = self.physics_engine.is_on_ground(cast["player"][1])
         if director.left_pressed and not director.right_pressed:
             # Create a force to the left. Apply it.
-            if is_on_ground:
+            if is_on_ground1:
                 force = (-constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
             else:
                 force = (-constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
-            self.physics_engine.apply_force(cast["paddle"][0], force)
+            self.physics_engine.apply_force(cast["player"][0], force)
             # Set friction to zero for the player while moving
-            self.physics_engine.set_friction(cast["paddle"][0], 0)
+            self.physics_engine.set_friction(cast["player"][0], 0)
         elif director.right_pressed and not director.left_pressed:
             # Create a force to the right. Apply it.
-            if is_on_ground:
+            if is_on_ground1:
                 force = (constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
             else:
                 force = (constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
-            self.physics_engine.apply_force(cast["paddle"][0], force)
+            self.physics_engine.apply_force(cast["player"][0], force)
             # Set friction to zero for the player while moving
-            self.physics_engine.set_friction(cast["paddle"][0], 0)
+            self.physics_engine.set_friction(cast["player"][0], 0)
         else:
             # Player's feet are not moving. Therefore up the friction so we stop.
-            self.physics_engine.set_friction(cast["paddle"][0], 1.0)
+            self.physics_engine.set_friction(cast["player"][0], 1.0)
         if director.up_pressed:
-            if self.physics_engine.is_on_ground(cast["paddle"][0]):
+            if self.physics_engine.is_on_ground(cast["player"][0]):
                 
                 impulse = (0, constants.PLAYER_JUMP_IMPULSE)
-                self.physics_engine.apply_impulse(cast["paddle"][0], impulse)
-        pass
+                self.physics_engine.apply_impulse(cast["player"][0], impulse)
+
+
+
+        if director.a_pressed and not director.d_pressed:
+            # Create a force to the left. Apply it.
+            if is_on_ground1:
+                force = (-constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
+            else:
+                force = (-constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
+            self.physics_engine.apply_force(cast["player"][1], force)
+            # Set friction to zero for the player while moving
+            self.physics_engine.set_friction(cast["player"][1], 0)
+        elif director.d_pressed and not director.a_pressed:
+            # Create a force to the right. Apply it.
+            if is_on_ground1:
+                force = (constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
+            else:
+                force = (constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
+            self.physics_engine.apply_force(cast["player"][1], force)
+            # Set friction to zero for the player while moving
+            self.physics_engine.set_friction(cast["player"][1], 0)
+        else:
+            # Player's feet are not moving. Therefore up the friction so we stop.
+            self.physics_engine.set_friction(cast["player"][1], 1.0)
+        if director.w_pressed:
+            if self.physics_engine.is_on_ground(cast["player"][1]):
+                
+                impulse = (0, constants.PLAYER_JUMP_IMPULSE)
+                self.physics_engine.apply_impulse(cast["player"][1], impulse)
+        
         
     
         
