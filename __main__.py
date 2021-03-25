@@ -7,7 +7,7 @@ from game.draw_actors_action import DrawActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.move_actors_action import MoveActorsAction
 from game.setup_game_action import SetupGameAction
-
+from game import fighter_dicts
 
 from game.stage import Stage
 from game.director import Director
@@ -20,8 +20,8 @@ def main():
     cast = {}
 
     cast["paddle"] = []
-    cast["paddle"].append(Paddle(300, 700))
-    cast["paddle"].append(Paddle(600, 700))
+    cast["paddle"].append(Paddle(fighter_dicts.robot, 300, 700))
+    cast["paddle"].append(Paddle(fighter_dicts.zombie, 600, 700))
 
 
     cast["stage"] = []
