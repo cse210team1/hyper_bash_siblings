@@ -20,8 +20,8 @@ def main():
     cast = {}
 
     cast["player"] = []
-    cast["player"].append(Player(600, 700))
-    cast["player"].append(Player(300, 700))
+    cast["player"].append(Player(fighter_dicts.robot, 600, 700))
+    cast["player"].append(Player(fighter_dicts.zombie, 300, 700))
 
 
     cast["stage"] = []
