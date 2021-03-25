@@ -1,19 +1,11 @@
-from game.sprite import Sprite
+from game import constants
 
-class Stage(Sprite):
-    def __init__(self):
-        self.set_velocity(0, 0)
-        
-    def main_platform(self):
-        pass
-        # define shape
+import arcade
 
-    def right_platform(self):
-        pass
-        # define shape
+class Stage(arcade.Sprite):
+    def __init__(self, x, y):
+        super().__init__(":resources:images/tiles/grassMid.png")
+        self.center_x = x
+        self.center_y = y
 
-    def left_platform(self):
-        pass
-        # define shape
 
-    
