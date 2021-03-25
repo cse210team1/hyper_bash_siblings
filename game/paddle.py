@@ -3,7 +3,7 @@ from game import constants
 import arcade
 
 class Paddle(arcade.Sprite):
-    def __init__(self, start_x, start_y):
+    def __init__(self, fighter_dict, start_x, start_y):
         super().__init__(":resources:images/animated_characters/male_adventurer/maleAdventurer_idle.png")
         self.center_x = start_x
         self.center_y = start_y
@@ -20,7 +20,7 @@ class Paddle(arcade.Sprite):
         # main_path = ":resources:images/animated_characters/male_person/malePerson"
         #main_path = ":resources:images/animated_characters/male_adventurer/maleAdventurer"
         # main_path = ":resources:images/animated_characters/zombie/zombie"
-        main_path = ":resources:images/animated_characters/robot/robot"
+        main_path = fighter_dict["avatar"]
 
         # Load textures for idle standing
         self.idle_texture_pair = arcade.load_texture_pair(f"{main_path}_idle.png")
