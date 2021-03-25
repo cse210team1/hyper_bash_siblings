@@ -1,4 +1,3 @@
-from game.sprite import Sprite
 from game.attack import Attack
 
 class Fighter(Sprite):

@@ -2,20 +2,10 @@ import os
 
 MAX_X = 1000
 MAX_Y = 650
-NUM_BALLS = 5
-
-BALL_SPEED = 3
-BALL_Y = MAX_Y / 2
 
 PADDLE_Y = 25
 
 PADDLE_MOVE_SCALE = 5
-
-BRICK_WIDTH = 25
-BRICK_HEIGHT = 15
-BRICK_SPACE = 10
-
-BALLS_CAN_DIE = False
 
 
 # --- Physics forces. Higher number, faster accelerating.

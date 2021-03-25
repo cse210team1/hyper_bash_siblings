@@ -7,9 +7,9 @@ from game.draw_actors_action import DrawActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.move_actors_action import MoveActorsAction
 from game.setup_game_action import SetupGameAction
+from game import fighter_dicts
 
-
-from game.brick import Brick
+from game.stage import Stage
 from game.director import Director
 from game.player import Player
 
@@ -24,11 +24,11 @@ def main():
     cast["player"].append(Player(300, 700))
 
 
-    cast["bricks"] = []
+    cast["stage"] = []
 
     for x in range(184, 840, 64):
-            brick = Brick(x,32)
-            cast["bricks"].append(brick)
+            brick = Stage(x,32)
+            cast["stage"].append(brick)
     
     # create the script {key: tag, value: list}
     script = {}
