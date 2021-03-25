@@ -2,35 +2,19 @@ from game.sprite import Sprite
 from game.attack import Attack
 
 class Fighter(Sprite):
-    def __init__(self):
+    def __init__(self, dictionary):
         super().__init__()
-        self.__ground_speed = None
-        self.__air_speed = None
-        self.__damage_multiplier = None
+        self.__ground_speed = dictionary["ground_speed"]
+        self.__air_speed = dictionary["air_speed"]
+        self.__damage_multiplier = dictionary["damage_multiplier"]
 
-        self.a_attack = None
-        self.b_attack = None
+        self.a_attack = Attack(dictionary["a_attack"])
+        self.b_attack = Attack(dictionary["b_attack"])
 
         self.lives = 3
         self.damage = 0
         self.jumps = 0
     
-    # setters
-    def set_ground_speed(self, number):
-        self.__ground_speed = number
-
-    def set_air_speed(self, number):
-        self.__air_speed = number
-
-    def set_damage_multiplier(self, number):
-        self.__damage_multiplier = number
-
-    def set_a_attack(self, number):
-        self.a_attack = Attack(number)
-
-    def set_b_attack(self, number):
-        self.b_attack = Attack(number)
-
     # getters
     def get_ground_speed(self):
         return self.__ground_speed
