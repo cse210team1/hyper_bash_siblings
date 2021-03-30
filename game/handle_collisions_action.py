@@ -1,72 +1,61 @@
+import arcade
 from game import constants
 from game.action import Action
 
+
 class HandleCollisionsAction(Action):
-    """A code template for handling collisions. The responsibility of this class of objects is to update the game state when actors collide.
+    """A code template for controlling actors. The responsibility of this
+    class of objects is translate user input into some kind of intent.
     
     Stereotype:
         Controller
     """
 
-    def execute(self, cast, args, director):
-        # paddle = cast["paddle"][0]
-        # balls = cast["balls"]
-        # bricks = cast["bricks"]
-        # balls_to_remove = []
-            
-        # for ball in balls:
-        #     self._handle_ball_wall_collision(ball)
-        #     self._handle_ball_paddle_collision(ball, paddle)
-        #     self._handle_ball_brick_collision(ball, bricks)
-        #     self._handle_ball_base_collision(ball, balls_to_remove)
-        #     self._handle_paddle_limit_collision(paddle)
-            
-        # for ball in balls_to_remove:
-        #     balls.remove(ball)
+    def __init__(self):
+
         pass
 
-    def _handle_ball_wall_collision(self, ball):
-        ball_x = ball.center_x
-        ball_y = ball.center_y
+    def execute(self, cast, args, director):
+        player_1 = cast["paddle"][0]
+        player_2 = cast["paddle"][1]
 
-        # Check for bounce on walls
-        if ball_x <= 0 or ball_x >= constants.MAX_X:
-            ball.bounce_vertical()
+        if player_1.collides_with_sprite(player_2):
+            print("collided")
 
-        if ball_y >= constants.MAX_Y:
-            ball.bounce_horizontal()
-        
-        if not constants.BALLS_CAN_DIE and ball_y <= 0:
-            ball.bounce_horizontal()
-    
-    def _handle_ball_paddle_collision(self, ball, paddle):
-        # This makes use of the `Sprite` functionality
-        if paddle.collides_with_sprite(ball):
-            # Ball and paddle collide!
-            ball.bounce_horizontal()
+            if not player_1.a_attack_active and not player_1.b_attack_active and not player_2.a_attack_active and not player_2.b_attack_active:
+                pass
+                #no damage
+                #no knockback
+            elif player_1.a_attack_active and not player_2.a_attack_active and not player_2.b_attack_active:
+                pass
+                #damage player 2
+                #knockback player 2
+            elif player_1.b_attack_active and not player_2.a_attack_active and not player_2.b_attack_active:
+                pass
+                #damage player 2
+                #knockback player 2
+            elif not player_1.a_attack_active and not player_1.a_attack_active and player_2.a_attack_active:
+                pass
+                #damage player 1
+                #knockback player 2
+            elif not player_1.a_attack_active and not player_1.a_attack_active and player_2.b_attack_active:
+                pass
+                #damage plauyer 1
+                #knockback plauyer 1
+            elif player_1.a_attack_active and player_2.a_attack_active:
+                pass
+                #damage both
+                #no knockback
+            elif player_1.a_attack_active and player_2.b_attack_active:
+                pass
+                #damage both
+                #knockback playre 1
+            elif player_1.b_attack_active and player_2.a_attack_active: 
+                pass
+                #damage both
+                #knockback player 2
+            elif player_1.b_attack_active and player_2.b_attack_active:
+                pass
+                #damage both
+                # no knockback           
 
-    def _handle_ball_brick_collision(self, ball, bricks):
-        brick_to_remove = None
-        for brick in bricks:
-            # This makes use of the `Sprite` functionality
-            if ball.collides_with_sprite(brick):
-                ball.bounce_horizontal()
-                brick_to_remove = brick
-        if brick_to_remove != None:
-            bricks.remove(brick_to_remove)
-
-    def _handle_ball_base_collision(self, ball, balls_to_remove):
-        if constants.BALLS_CAN_DIE and ball.center_y < 0:
-            balls_to_remove.append(ball)
-    
-    def _handle_paddle_limit_collision(self, paddle):
-        if paddle.bottom < 10:
-            paddle.bottom = 10
-        elif paddle.top > 200:
-            paddle.top = 200
-        
-        if paddle.left < 0:
-            paddle.left = 0
-        elif paddle.right > constants.MAX_X:
-            paddle.right = constants.MAX_X 
-    

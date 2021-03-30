@@ -8,6 +8,7 @@ from game.handle_collisions_action import HandleCollisionsAction
 from game.move_actors_action import MoveActorsAction
 from game.setup_game_action import SetupGameAction
 from game import fighter_dicts
+from game.handle_attacks_action import HandleAttacksAction
 
 from game.stage import Stage
 from game.director import Director
@@ -42,10 +43,11 @@ def main():
     move_actors_action = MoveActorsAction(physics_engine)
     handle_collisions_action = HandleCollisionsAction()
     draw_actors_action = DrawActorsAction()
+    handle_attacks_action = HandleAttacksAction()
     
     script[Director.ON_SETUP] = [setup_game_action]
     script[Director.ON_KEY_PRESS] = [control_actors_action]
-    script[Director.ON_UPDATE] = [move_actors_action, handle_collisions_action]
+    script[Director.ON_UPDATE] = [move_actors_action, handle_collisions_action, handle_attacks_action]
     script[Director.ON_DRAW] = [draw_actors_action]
 
     # start the game
