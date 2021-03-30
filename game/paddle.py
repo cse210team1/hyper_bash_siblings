@@ -48,6 +48,15 @@ class Paddle(arcade.Sprite):
         # How far have we traveled horizontally since changing the texture
         self.x_odometer = 0
 
+
+
+        self.lives = 0
+        self.jumps = 0
+        self.damage = 0
+
+        self.a_attack_active = False
+        self.b_attack_active = False
+
     def pymunk_moved(self, physics_engine, dx, dy, d_angle):
         """ Handle being moved by the pymunk engine """
         # Figure out if we need to face left or right
