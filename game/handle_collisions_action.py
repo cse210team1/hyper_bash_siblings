@@ -16,8 +16,8 @@ class HandleCollisionsAction(Action):
         pass
 
     def execute(self, cast, args, director):
-        player_1 = cast["paddle"][0]
-        player_2 = cast["paddle"][1]
+        player_1 = cast["player"][0]
+        player_2 = cast["player"][1]
 
         if player_1.collides_with_sprite(player_2):
             print("collided")
