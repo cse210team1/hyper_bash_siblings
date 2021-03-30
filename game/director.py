@@ -78,11 +78,11 @@ class Director(arcade.Window):
         # args = { "key": key, "modifiers": modifiers }
         # self._cue_action(Director.ON_KEY_RELEASE, args)
         if key == arcade.key.J:
-            self.left_pressed = False
+            self.j_pressed = False
         elif key == arcade.key.L:
-            self.right_pressed = False
+            self.l_pressed = False
         elif key == arcade.key.I:
-            self.up_pressed = False
+            self.i_pressed = False
         elif key == arcade.key.W:
             self.w_pressed = False
         elif key == arcade.key.D:
