@@ -35,11 +35,11 @@ class HandleCollisionsAction(Action):
                     direction = -1
 
                 # an instant kill will be around 60k force and a basic around 12k  
-                base_hit = constants.PLAYER_HIT_SIDE * 1 # Replace with damage later to figure knockback based on health
+                base_hit = constants.PLAYER_HIT_SIDE * 5 # Replace with damage later to figure knockback based on health
                 hit_strength = base_hit * player_1.fighter_dict["a_attack"]
                 force = (direction * hit_strength, 0)
                 self.physics_engine.apply_force(player_2, force)
-                base_up = constants.PLAYER_HIT_UP * 1
+                base_up = constants.PLAYER_HIT_UP * 7
                 hit_up = base_up * player_1.fighter_dict["a_attack"]
                 if hit_up > 1650:
                     hit_up = 1650
