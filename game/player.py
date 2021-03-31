@@ -72,7 +72,6 @@ class Player(arcade.Sprite):
         # Add to the odometer how far we've moved
         self.x_odometer += dx
         if self.a_attack_active or self.b_attack_active:
-            print("Hi")
             self.texture = self.jump_texture_pair[self.character_face_direction]
             return
 
@@ -101,9 +100,6 @@ class Player(arcade.Sprite):
             if self.cur_texture > 7:
                 self.cur_texture = 0
             self.texture = self.walk_textures[self.cur_texture][self.character_face_direction]
-
-        if self.a_attack_active or self.b_attack_active:
-            self.texture = self.jump_texture_pair[self.character_face_direction]
 
     # def attack_sprite(self):
     #     if self.a_attack_active or self.b_attack_active:
