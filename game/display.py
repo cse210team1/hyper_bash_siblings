@@ -12,14 +12,17 @@ class Display():
     def hud(self, cast):
         player_1 = cast["player"][0]
         player_2 = cast["player"][1]
-        arcade.draw_text(f"{player_1.damage}%", 5,600, arcade.color.BLACK, 30, font_name='BERNHC')
-        if len(str(player_2.damage)) == 3:
+        arcade.draw_text(f"{round(player_1.damage * 35)}%", 5,600, arcade.color.BLACK, 30, font_name='BERNHC')
+        player_2_damage = round(player_2.damage * 35)
+        if len(str(player_2_damage)) == 3:
             x = 915
-        elif len(str(player_2.damage)) == 1:
+        elif len(str(player_2_damage)) == 1:
             x = 950
-        elif len(str(player_2.damage)) == 2:
+        elif len(str(player_2_damage)) == 2:
             x = 933
-        arcade.draw_text(f"{player_2.damage}%", x,600, arcade.color.BLACK, 30, font_name='BERNHC')
+        else: 
+            x = 915
+        arcade.draw_text(f"{player_2_damage}%", x,600, arcade.color.BLACK, 30, font_name='BERNHC')
         texture = arcade.load_texture(":resources:images/items/coinGold_lr.png")
         scale = .4
         if player_1.lives == 3:
