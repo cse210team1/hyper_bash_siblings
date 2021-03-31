@@ -25,32 +25,100 @@ class HandleCollisionsAction(Action):
                 pass
                 #no damage
                 #no knockback
+
+            # Player 1 hits attack a
             elif player_1.a_attack_active and not player_2.a_attack_active and not player_2.b_attack_active:
+                direction = None
+                if player_1.center_x < player_2.center_x:
+                    direction = 1
+                else:
+                    direction = -1
+
                 # an instant kill will be around 60k force and a basic around 12k  
-                base_hit = constants.PLAYER_HIT_SIDE * 5 # Replace with damage later to figure knockback based on health
+                base_hit = constants.PLAYER_HIT_SIDE * 1 # Replace with damage later to figure knockback based on health
                 hit_strength = base_hit * player_1.fighter_dict["a_attack"]
-                force = (hit_strength, 0)
-                self.physics_engine.apply_force(player_1, force)
-                base_up = constants.PLAYER_HIT_UP * 7
+                force = (direction * hit_strength, 0)
+                self.physics_engine.apply_force(player_2, force)
+                base_up = constants.PLAYER_HIT_UP * 1
                 hit_up = base_up * player_1.fighter_dict["a_attack"]
                 if hit_up > 1650:
                     hit_up = 1650
                 # a instant kill is around 1600 total, base is around 225 for jump force. 
                 impulse = (0, hit_up)
                 print(hit_up)
-                self.physics_engine.apply_impulse(player_1, impulse)
+                self.physics_engine.apply_impulse(player_2, impulse)
                 #damage player 2
                 #knockback player 2
+
+            #Player 1 hits attack b 
             elif player_1.b_attack_active and not player_2.a_attack_active and not player_2.b_attack_active:
-                
-                pass
+                direction = None
+                if player_1.center_x < player_2.center_x:
+                    direction = 1
+                else:
+                    direction = -1
+
+                # an instant kill will be around 60k force and a basic around 12k  
+                base_hit = constants.PLAYER_HIT_SIDE * 1 # Replace with damage later to figure knockback based on health
+                hit_strength = base_hit * player_1.fighter_dict["b_attack"]
+                force = (direction * hit_strength, 0)
+                self.physics_engine.apply_force(player_2, force)
+                base_up = constants.PLAYER_HIT_UP * 1
+                hit_up = base_up * player_1.fighter_dict["b_attack"]
+                if hit_up > 1650:
+                    hit_up = 1650
+                # a instant kill is around 1600 total, base is around 225 for jump force. 
+                impulse = (0, hit_up)
+                print(hit_up)
+                self.physics_engine.apply_impulse(player_2, impulse)
                 #damage player 2
                 #knockback player 2
+
+            # player 2 hits attack a 
             elif not player_1.a_attack_active and not player_1.a_attack_active and player_2.a_attack_active:
-                pass
+                direction = None
+                if player_1.center_x > player_2.center_x:
+                    direction = 1
+                else:
+                    direction = -1
+
+                # an instant kill will be around 60k force and a basic around 12k  
+                base_hit = constants.PLAYER_HIT_SIDE * 1 # Replace with damage later to figure knockback based on health
+                hit_strength = base_hit * player_2.fighter_dict["a_attack"]
+                force = (direction * hit_strength, 0)
+                self.physics_engine.apply_force(player_1, force)
+                base_up = constants.PLAYER_HIT_UP * 1
+                hit_up = base_up * player_2.fighter_dict["a_attack"]
+                if hit_up > 1650:
+                    hit_up = 1650
+                # a instant kill is around 1600 total, base is around 225 for jump force. 
+                impulse = (0, hit_up)
+                print(hit_up)
+                self.physics_engine.apply_impulse(player_1, impulse)
+                
                 #damage player 1
-                #knockback player 2
+                #knockback player 1
+            # Player 2 hits attack b 
             elif not player_1.a_attack_active and not player_1.a_attack_active and player_2.b_attack_active:
+                direction = None
+                if player_1.center_x > player_2.center_x:
+                    direction = 1
+                else:
+                    direction = -1
+
+                # an instant kill will be around 60k force and a basic around 12k  
+                base_hit = constants.PLAYER_HIT_SIDE * 1 # Replace with damage later to figure knockback based on health
+                hit_strength = base_hit * player_2.fighter_dict["b_attack"]
+                force = (direction * hit_strength, 0)
+                self.physics_engine.apply_force(player_1, force)
+                base_up = constants.PLAYER_HIT_UP * 1
+                hit_up = base_up * player_2.fighter_dict["b_attack"]
+                if hit_up > 1650:
+                    hit_up = 1650
+                # a instant kill is around 1600 total, base is around 225 for jump force. 
+                impulse = (0, hit_up)
+                print(hit_up)
+                self.physics_engine.apply_impulse(player_1, impulse)
                 pass
                 #damage plauyer 1
                 #knockback plauyer 1
