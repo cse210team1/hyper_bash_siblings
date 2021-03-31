@@ -23,11 +23,20 @@ class HandleAttacksAction(Action):
             player_1.a_attack_active = True
         elif director.v_pressed:
             player_1.b_attack_active = True
+        if not director.f_pressed:
+            player_1.a_attack_active = False
+        elif not director.v_pressed:
+            player_1.b_attack_active = False
+        
 
         if director.h_pressed:
             player_2.a_attack_active = True
         elif director.b_pressed:
             player_2.b_attack_active = True
+        if not director.h_pressed:
+            player_2.a_attack_active = False
+        elif not director.b_pressed:
+            player_2.b_attack_active = False
 
         # add somethign for animations
 

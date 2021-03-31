@@ -41,7 +41,7 @@ def main():
     setup_game_action = SetupGameAction(physics_engine)
     control_actors_action = ControlActorsAction(physics_engine)
     move_actors_action = MoveActorsAction(physics_engine)
-    handle_collisions_action = HandleCollisionsAction()
+    handle_collisions_action = HandleCollisionsAction(physics_engine)
     draw_actors_action = DrawActorsAction()
     handle_attacks_action = HandleAttacksAction()
     
