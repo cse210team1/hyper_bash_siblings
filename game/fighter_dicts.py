@@ -19,9 +19,9 @@ bob = {
 
 robot = {
     "avatar": ":resources:images/animated_characters/robot/robot",
-    "ground_force": 11.5,
+    "ground_force": 3,
     "air_force": 5.5,
-    "a_attack": 10,
+    "a_attack": 3,
     "b_attack": 12.5,
     "damage_multiplier": 2
     }

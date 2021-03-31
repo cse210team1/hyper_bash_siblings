@@ -20,6 +20,7 @@ class Player(arcade.Sprite):
         # main_path = ":resources:images/animated_characters/male_person/malePerson"
         #main_path = ":resources:images/animated_characters/male_adventurer/maleAdventurer"
         # main_path = ":resources:images/animated_characters/zombie/zombie"
+        self.fighter_dict = fighter_dict
         main_path = fighter_dict["avatar"]
 
         # Load textures for idle standing
