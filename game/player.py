@@ -51,9 +51,9 @@ class Player(arcade.Sprite):
 
 
 
-        self.lives = 0
+        self.lives = 3
         self.jumps = 0
-        self.damage = 0
+        self.damage = 5
 
         self.a_attack_active = False
         self.b_attack_active = False

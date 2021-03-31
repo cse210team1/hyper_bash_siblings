@@ -15,4 +15,7 @@ class DrawActorsAction(Action):
             paddle.draw()
         for brick in cast["stage"]:
             brick.draw()
+
+        for hud in cast["hud"]:
+            hud.hud(cast)
         
