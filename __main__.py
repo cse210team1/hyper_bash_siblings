@@ -13,6 +13,7 @@ from game.handle_attacks_action import HandleAttacksAction
 from game.stage import Stage
 from game.director import Director
 from game.player import Player
+from game.display import Display
 
 
 def main():
@@ -30,6 +31,11 @@ def main():
     for x in range(184, 840, 64):
             brick = Stage(x,32)
             cast["stage"].append(brick)
+        
+    cast["hud"] = []
+    cast["hud"].append(Display())
+    
+
     
     # create the script {key: tag, value: list}
     script = {}
