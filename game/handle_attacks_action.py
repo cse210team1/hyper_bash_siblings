@@ -12,55 +12,49 @@ class HandleAttacksAction(Action):
         Controller
     """
 
-    def __init__(self):
+    def __init__(self, cast):
+        self.player_1 = cast["player"][0]
+        self.player_2 = cast["player"][1]
 
-        pass
 
     def execute(self, cast, args, director):
-        player_1 = cast["player"][0]
-        player_2 = cast["player"][1]
-
-        player_1_concurrent_attacking_frames = 0
-        player_2_concurrent_attacking_frames = 0
-
         if director.f_pressed:
-            if player_1_concurrent_attacking_frames <= 40:
-                player_1.a_attack_active = True
+            self.player_1.successive_a_attack_frames += 1
+            if self.player_1.successive_a_attack_frames <= 40:
+                self.player_1.a_attack_active = True
             else:
-                player_1.a_attack_active = False
-            player_1_concurrent_attacking_frames += 1
-            print(player_1_concurrent_attacking_frames)
-        elif director.v_pressed:
-            if player_1_concurrent_attacking_frames <= 15:
-                player_1.b_attack_active = True
+                self.player_1.a_attack_active = False
+        elif director.f_pressed == False:
+            self.player_1.a_attack_active = False
+            self.player_1.successive_a_attack_frames = 0
+                
+        if director.v_pressed == True and director.f_pressed == False:
+            if self.player_1.successive_b_attack_frames <= 15:
+                self.player_1.b_attack_active = True
             else:
-                player_1.b_attack_active = False
-            player_1_concurrent_attacking_frames += 1
-
-        if not director.f_pressed:
-            player_1.a_attack_active = False
-            player_1_concurrent_attacking_frames = 0
-        if not director.v_pressed:
-            player_1.b_attack_active = False
-            player_1_concurrent_attacking_frames = 0
+                self.player_1.b_attack_active = False
+            self.player_1.successive_b_attack_frames += 1
+        elif director.v_pressed == False:
+            self.player_1.b_attack_active = False
+            self.player_1.successive_b_attack_frames = 0
         
 
         if director.h_pressed:
-            if player_2_concurrent_attacking_frames <= 40:
-                player_2.a_attack_active = True
+            self.player_2.successive_a_attack_frames += 1
+            if self.player_2.successive_a_attack_frames <= 40:
+                self.player_2.a_attack_active = True
             else:
-                player_2.a_attack_active = False
-            player_2_concurrent_attacking_frames += 1
-        elif director.b_pressed:
-            if player_2_concurrent_attacking_frames <= 40:
-                player_2.a_attack_active = True
+                self.player_2.a_attack_active = False
+        elif director.h_pressed == False:
+            self.player_2.a_attack_active = False
+            self.player_2.successive_a_attack_frames = 0
+                
+        if director.b_pressed == True and director.h_pressed == False:
+            if self.player_2.successive_b_attack_frames <= 15:
+                self.player_2.b_attack_active = True
             else:
-                player_2.a_attack_active = False
-            player_2_concurrent_attacking_frames += 1
-
-        if not director.h_pressed:
-            player_2.a_attack_active = False
-            player_2_concurrent_attacking_frames = 0
-        if not director.b_pressed:
-            player_2.b_attack_active = False
-            player_2_concurrent_attacking_frames = 0
+                self.player_2.b_attack_active = False
+            self.player_2.successive_b_attack_frames += 1
+        elif director.b_pressed == False:
+            self.player_2.b_attack_active = False
+            self.player_2.successive_b_attack_frames = 0

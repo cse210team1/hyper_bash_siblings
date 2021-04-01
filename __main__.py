@@ -49,7 +49,7 @@ def main():
     move_actors_action = MoveActorsAction(physics_engine)
     handle_collisions_action = HandleCollisionsAction(physics_engine)
     draw_actors_action = DrawActorsAction()
-    handle_attacks_action = HandleAttacksAction()
+    handle_attacks_action = HandleAttacksAction(cast)
     
     script[Director.ON_SETUP] = [setup_game_action]
     script[Director.ON_KEY_PRESS] = [control_actors_action]
