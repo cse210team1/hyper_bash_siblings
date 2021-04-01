@@ -28,7 +28,7 @@ def main():
 
     cast["stage"] = []
 
-    for x in range(184, 840, 64):
+    for x in range(184, 840, 128):
             brick = Stage(x,32)
             cast["stage"].append(brick)
         

@@ -1,5 +1,6 @@
 from game import constants
 
+
 import arcade
 
 class Player(arcade.Sprite):
@@ -8,18 +9,7 @@ class Player(arcade.Sprite):
         self.center_x = start_x
         self.center_y = start_y
         """ Init """
-        # Let parent initialize
-        # super().__init__()
-
-        # Set our scale
-        #self.scale = constants.SPRITE_SCALING_PLAYER
-
-        # Images from Kenney.nl's Character pack
-        # main_path = ":resources:images/animated_characters/female_adventurer/femaleAdventurer"
-        #main_path = ":resources:images/animated_characters/female_person/femalePerson"
-        # main_path = ":resources:images/animated_characters/male_person/malePerson"
-        #main_path = ":resources:images/animated_characters/male_adventurer/maleAdventurer"
-        # main_path = ":resources:images/animated_characters/zombie/zombie"
+        
         self.fighter_dict = fighter_dict
         main_path = fighter_dict["avatar"]
 
@@ -54,6 +44,9 @@ class Player(arcade.Sprite):
         self.lives = 3
         self.jumps = 0
         self.damage = 0
+
+        self.jump_sound = arcade.load_sound(":resources:sounds/jump5.wav")
+        self.hit_noise = arcade.load_sound(":resources:sounds/hit4.wav")
 
         self.a_attack_active = False
         self.b_attack_active = False
@@ -101,6 +94,9 @@ class Player(arcade.Sprite):
                 self.cur_texture = 0
             self.texture = self.walk_textures[self.cur_texture][self.character_face_direction]
 
-    # def attack_sprite(self):
-    #     if self.a_attack_active or self.b_attack_active:
-    #         self.texture = self.jump_texture_pair
+    def jump_noise(self):
+        arcade.play_sound(self.jump_sound)
+
+    def get_hit(self):
+        
+        arcade.play_sound(self.hit_noise)

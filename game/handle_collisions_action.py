@@ -45,6 +45,7 @@ class HandleCollisionsAction(Action):
                 
                 #damage:
                 player_2.damage += hit_strength * 0.0001 * player_2.fighter_dict["damage_multiplier"]
+                player_1.get_hit()
 
             #Player 1 hits attack b 
             elif player_1.b_attack_active and not player_2.a_attack_active and not player_2.b_attack_active:
@@ -69,6 +70,7 @@ class HandleCollisionsAction(Action):
                 self.physics_engine.apply_impulse(player_2, impulse)
                 #damage:
                 player_2.damage += hit_strength * 0.0001 * player_2.fighter_dict["damage_multiplier"]
+                player_1.get_hit()
 
             # player 2 hits attack a 
             if not player_1.a_attack_active and not player_1.a_attack_active and player_2.a_attack_active:
@@ -95,6 +97,7 @@ class HandleCollisionsAction(Action):
 
                 #damage:
                 player_1.damage += hit_strength * 0.0001 * player_1.fighter_dict["damage_multiplier"]
+                player_1.get_hit()
 
 
             # Player 2 hits attack b 
@@ -121,3 +124,4 @@ class HandleCollisionsAction(Action):
 
                 #damage:
                 player_1.damage += hit_strength * 0.0001 * player_1.fighter_dict["damage_multiplier"]
+                player_1.get_hit()

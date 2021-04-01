@@ -83,6 +83,7 @@ class MoveActorsAction(Action):
                 
                 impulse = (0, constants.PLAYER_JUMP_IMPULSE)
                 self.physics_engine.apply_impulse(cast["player"][0], impulse)
+                cast["player"][0].jump_noise()
         pass
         
     
