@@ -1,5 +1,4 @@
 from game.action import Action
-from game.control_actors_action import ControlActorsAction
 from game import constants
 
 
