@@ -3,6 +3,7 @@ from game import constants
 from typing import Optional
 
 class Director(arcade.Window):
+
     
     ON_DRAW = "ON_DRAW"
     ON_KEY_PRESS = "ON_KEY_PRESS"
@@ -43,7 +44,7 @@ class Director(arcade.Window):
     def direct_scene(self, cast, script):
         self._cast = cast
         self._script = script
-        # self.setup()
+
     
     def on_draw(self):
         arcade.start_render()
@@ -101,25 +102,25 @@ class Director(arcade.Window):
 
     
         
-    # def on_mouse_drag(self, x, y, dx, dy, buttons, _):
-    #     args = { "x": x, "y": y, "dx": dx, "dy": dy, "buttons": buttons }
-    #     self._cue_action(Director.ON_MOUSE_DRAG, args)
+    def on_mouse_drag(self, x, y, dx, dy, buttons, _):
+        args = { "x": x, "y": y, "dx": dx, "dy": dy, "buttons": buttons }
+        self._cue_action(Director.ON_MOUSE_DRAG, args)
         
-    # def on_mouse_motion(self, x, y, dx, dy):
-    #     args = { "x": x, "y": y, "dx": dx, "dy": dy }
-    #     self._cue_action(Director.ON_MOUSE_MOTION, args)
+    def on_mouse_motion(self, x, y, dx, dy):
+        args = { "x": x, "y": y, "dx": dx, "dy": dy }
+        self._cue_action(Director.ON_MOUSE_MOTION, args)
         
-    # def on_mouse_press(self, x, y, button, _):
-    #     args = { "x": x, "y": y, "button": button }
-    #     self._cue_action(Director.ON_MOUSE_PRESS, args)
+    def on_mouse_press(self, x, y, button, _):
+        args = { "x": x, "y": y, "button": button }
+        self._cue_action(Director.ON_MOUSE_PRESS, args)
         
-    # def on_mouse_release(self, x, y, button, _):
-    #     args = { "x": x, "y": y, "button": button }
-    #     self._cue_action(Director.ON_MOUSE_RELEASE, args)
+    def on_mouse_release(self, x, y, button, _):
+        args = { "x": x, "y": y, "button": button }
+        self._cue_action(Director.ON_MOUSE_RELEASE, args)
         
-    # def on_mouse_scroll(self, x, y, scroll_x, scroll_y):
-    #     args = { "x": x, "y": y, "scroll_x": scroll_x, "scroll_y": scroll_y }
-    #     self._cue_action(Director.ON_MOUSE_SCROLL, args)
+    def on_mouse_scroll(self, x, y, scroll_x, scroll_y):
+        args = { "x": x, "y": y, "scroll_x": scroll_x, "scroll_y": scroll_y }
+        self._cue_action(Director.ON_MOUSE_SCROLL, args)
 
     def on_setup(self):
         self._cue_action(Director.ON_SETUP, None)
@@ -133,9 +134,3 @@ class Director(arcade.Window):
         for action in actions:
             action.execute(self._cast, args, self)
 
-    # def setup(self):
-    #     damping = constants.DEFAULT_DAMPING
-    #     gravity = (0, -constants.GRAVITY)
-    #     self.physics_engine = arcade.PymunkPhysicsEngine(damping=damping, gravity=gravity)
-    #     self.physics_engine.add_sprite(self._cast["paddle"][0], friction=constants.PLAYER_FRICTION,  mass=constants.PLAYER_MASS, moment=arcade.PymunkPhysicsEngine.MOMENT_INF, collision_type="player",  max_horizontal_velocity=constants.PLAYER_MAX_HORIZONTAL_SPEED,  max_vertical_velocity=constants.PLAYER_MAX_VERTICAL_SPEED)
-    #     self.physics_engine.add_sprite_list(self._cast["bricks"], friction=constants.WALL_FRICTION,  collision_type="wall", body_type=arcade.PymunkPhysicsEngine.STATIC)
