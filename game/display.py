@@ -12,17 +12,17 @@ class Display():
     def hud(self, cast):
         player_1 = cast["player"][0]
         player_2 = cast["player"][1]
-        arcade.draw_text(f"{round(player_1.damage * 35)}%", 5,600, arcade.color.BLACK, 30, font_name='BERNHC')
+        arcade.draw_text(f"{round(player_1.damage * 35)}%", 5,700, arcade.color.BLACK, 30, font_name='BERNHC')
         player_2_damage = round(player_2.damage * 35)
         if len(str(player_2_damage)) == 3:
-            x = 915
+            x = 1368
         elif len(str(player_2_damage)) == 1:
-            x = 950
+            x = 1400
         elif len(str(player_2_damage)) == 2:
-            x = 933
+            x = 1383
         else: 
             x = 915
-        arcade.draw_text(f"{player_2_damage}%", x,600, arcade.color.BLACK, 30, font_name='BERNHC')
+        arcade.draw_text(f"{player_2_damage}%", x, 700, arcade.color.BLACK, 30, font_name='BERNHC')
         texture = arcade.load_texture(":resources:images/items/coinGold_lr.png")
         scale = .4
         if player_1.lives == 3:
@@ -34,19 +34,19 @@ class Display():
         else: 
             lives_1 = 0 
         for i in range(5, lives_1, 35):
-            arcade.draw_scaled_texture_rectangle(i, 590, texture, scale, 0)
+            arcade.draw_scaled_texture_rectangle(i, 690, texture, scale, 0)
 
         if player_2.lives == 3:
-            lives_2 = 899
+            lives_2 = 1349
         elif player_2.lives == 2:
-            lives_2 = 934
+            lives_2 = 1384
         elif player_2.lives == 1:
-            lives_2 = 969
+            lives_2 = 1419
         else: 
-            lives_2 = 971
+            lives_2 = 1421
 
-        for i in range(970, lives_2, -35):
-            arcade.draw_scaled_texture_rectangle(i, 590, texture, scale, 0)
+        for i in range(1420, lives_2, -35):
+            arcade.draw_scaled_texture_rectangle(i, 690, texture, scale, 0)
         
         
 

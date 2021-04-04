@@ -1,14 +1,7 @@
 import arcade
 
-#from director import Director
-# from game.check_over_action import CheckOverAction
-# from help.show_menu_action import ShowMenuAction
-# from menu.show_help_action import ShowHelpAction
-from game.start_game_action import StartGameAction
-from game.background import Background
-from game.button import Button
-#from shared.draw_actors_action import DrawActorsAction
-# from shared.label import Label
+from menu.start_game_action import StartGameAction
+from menu.button import Button
 from game import constants
 from game.draw_actors_action import DrawActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
@@ -37,7 +30,7 @@ class Factory:
         cast = {}
         
         if scene == "menu_scene":
-            cast["background"] = [ Background(arcade.color.CORNFLOWER_BLUE) ]
+            
 
             cast["start_button"] = [Button("Start Game", 725, 100, 200, 50)]
 
@@ -64,9 +57,10 @@ class Factory:
 
             cast["stage"] = []
 
-            for x in range(184, 1200, 128):
-                    brick = Stage(x,32)
-                    cast["stage"].append(brick)
+            for x in range(184, 1330, 96):
+                brick = Stage(x,32)
+                cast["stage"].append(brick)
+            
                 
             cast["hud"] = []
             cast["hud"].append(Display())
@@ -86,11 +80,6 @@ class Factory:
             script[Director.ON_DRAW] = []
             script[Director.ON_DRAW].append(DrawActorsAction())
             
-        # elif scene == "help_scene":
-        #     script[Director.ON_MOUSE_RELEASE] = []
-        #     script[Director.ON_MOUSE_RELEASE].append(ShowMenuAction(self))
-        #     script[Director.ON_DRAW] = []
-        #     script[Director.ON_DRAW].append(DrawActorsAction())
 
         elif scene == "game_scene":
             setup_game_action = SetupGameAction(self.physics_engine)

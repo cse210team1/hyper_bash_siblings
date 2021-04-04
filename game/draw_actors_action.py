@@ -10,7 +10,7 @@ class DrawActorsAction(Action):
         Controller
     """
     def __init__(self):
-        self.background = arcade.load_texture("backgroundColorGrass.png")
+        self.background = arcade.load_texture("art/backgroundColorGrass.png")
 
     def execute(self, cast, args, director):
 
