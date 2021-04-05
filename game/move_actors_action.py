@@ -102,10 +102,10 @@ class MoveActorsAction(Action):
             if cast["player"][0].jumps < 1:
                 if cast["player"][0].successive_jumping_frames == 0:
                     impulse = (0, constants.PLAYER_JUMP_IMPULSE)
-                    x_vel = self.get_velocity(cast["player"][1])[0]
+                    x_vel = self.get_velocity(cast["player"][0])[0]
                     new_vel = (x_vel, 0)
-                    self.physics_engine.set_velocity(cast["player"][1], new_vel)
-                    self.physics_engine.apply_impulse(cast["player"][1], impulse)
+                    self.physics_engine.set_velocity(cast["player"][0], new_vel)
+                    self.physics_engine.apply_impulse(cast["player"][0], impulse)
                     cast["player"][0].jump_noise()
                     cast["player"][0].jumps += 1
                     cast["player"][0].successive_jumping_frames +=1
