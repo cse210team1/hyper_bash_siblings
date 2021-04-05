@@ -95,7 +95,7 @@ class Factory:
             move_actors_action = MoveActorsAction(self.physics_engine)
             handle_collisions_action = HandleCollisionsAction(self.physics_engine)
             draw_actors_action = DrawActorsAction()
-            handle_attacks_action = HandleAttacksAction()
+            handle_attacks_action = HandleAttacksAction(self.cast)
             
             script[Director.ON_SETUP] = [setup_game_action]
             script[Director.ON_KEY_PRESS] = []
