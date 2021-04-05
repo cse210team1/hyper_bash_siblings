@@ -51,6 +51,7 @@ class Player(arcade.Sprite):
         self.a_attack_active = False
         self.b_attack_active = False
 
+        self.successive_jumping_frames = 0
         self.successive_a_attack_frames = 0
         self.successive_b_attack_frames = 0
 
