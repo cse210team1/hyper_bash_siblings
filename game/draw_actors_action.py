@@ -51,3 +51,9 @@ class DrawActorsAction(Action):
                 paddle.draw()
         except:
             pass
+
+        try:
+            for paddle in cast["sprite_player"]:
+                paddle.draw()
+        except:
+            pass

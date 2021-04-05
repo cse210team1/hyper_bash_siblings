@@ -14,6 +14,7 @@ from game.stage import Stage
 from game.director import Director
 from game.player import Player
 from game.display import Display
+from arcade.gui import UIManager
 
 
 class Factory:
@@ -25,50 +26,58 @@ class Factory:
         self.physics_engine = arcade.PymunkPhysicsEngine(damping=damping, gravity=gravity)
         self.player_1_choice = None
         self.player_2_choice = None
+        self.cast = {}
+        #self.ui_manager = UIManager()
 
     def create_cast(self, scene):
-        cast = {}
+        self.cast = {}
         
         if scene == "menu_scene":
             
 
-            cast["start_button"] = [Button("Start Game", 725, 100, 200, 50)]
+            self.cast["start_button"] = [Button("Start Game", 725, 100, 200, 50)]
 
-            cast["player_1"] = []
-            cast["player_1"].append(Button("BOB", 400, 200, 200, 50))
-            cast["player_1"].append(Button("ALICE", 400, 275, 200, 50))
-            cast["player_1"].append(Button("ROBOT", 400, 350, 200, 50))
-            cast["player_1"].append(Button("ZOMBIE", 400, 425, 200, 50))
+            self.cast["player_1"] = []
+            self.cast["player_1"].append(Button("BOB", 400, 200, 200, 50))
+            self.cast["player_1"].append(Button("ALICE", 400, 275, 200, 50))
+            self.cast["player_1"].append(Button("ROBOT", 400, 350, 200, 50))
+            self.cast["player_1"].append(Button("ZOMBIE", 400, 425, 200, 50))
 
-            cast["player_2"] = []
-            cast["player_2"].append(Button("BOB",  1050, 200, 200, 50))
-            cast["player_2"].append(Button("ALICE", 1050, 275, 200, 50))
-            cast["player_2"].append(Button("ROBOT", 1050, 350, 200, 50))
-            cast["player_2"].append(Button("ZOMBIE", 1050, 425, 200, 50))
+            self.cast["player_2"] = []
+            self.cast["player_2"].append(Button("BOB",  1050, 200, 200, 50))
+            self.cast["player_2"].append(Button("ALICE", 1050, 275, 200, 50))
+            self.cast["player_2"].append(Button("ROBOT", 1050, 350, 200, 50))
+            self.cast["player_2"].append(Button("ZOMBIE", 1050, 425, 200, 50))
+
+            # self.cast["sprite_player"] = []
+            # self.cast["sprite_player"].append(Player(self.player_1_choice, 300, 700))
+             
+
+            #self.ui_manager.add_ui_element(cast["player_2"][1])
             
         
 
         elif scene == "game_scene":
             print("Start making the cast!")
-            cast["player"] = []
-            cast["player"].append(Player(self.player_1_choice, 300, 700))
-            cast["player"].append(Player(self.player_2_choice, 600, 700))
+            self.cast["player"] = []
+            self.cast["player"].append(Player(self.player_1_choice, 300, 700))
+            self.cast["player"].append(Player(self.player_2_choice, 600, 700))
 
 
-            cast["stage"] = []
+            self.cast["stage"] = []
 
             for x in range(184, 1330, 96):
                 brick = Stage(x,32)
-                cast["stage"].append(brick)
+                self.cast["stage"].append(brick)
             
                 
-            cast["hud"] = []
-            cast["hud"].append(Display())
+            self.cast["hud"] = []
+            self.cast["hud"].append(Display())
             print("Finished making the cast")
-            print(cast["player"][0].get_hit)
-            print(cast["player"][1].jump_noise)
+            print(self.cast["player"][0].get_hit)
+            print(self.cast["player"][1].jump_noise)
             
-        return cast
+        return self.cast
             
 
     def create_script(self, scene):
@@ -97,6 +106,7 @@ class Factory:
 
     def set_player_1(self, choice):
         self.player_1_choice = choice
+        self.cast["sprite_player"].append(Player(self.player_1_choice, 300, 700))
 
     def set_player_2(self, choice):
         self.player_2_choice = choice
