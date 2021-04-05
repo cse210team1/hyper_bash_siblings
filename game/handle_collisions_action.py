@@ -125,3 +125,21 @@ class HandleCollisionsAction(Action):
                 #damage:
                 player_1.damage += hit_strength * 0.0001 * player_1.fighter_dict["damage_multiplier"]
                 player_1.get_hit()
+
+
+        if player_1.center_y < -300 or player_1.center_y > 2000:
+            position = 325, 600
+            velocity = 0,0
+            player_1.lives -= 1
+            player_1.damage = 0 
+            self.physics_engine.set_velocity(player_1, velocity)
+            self.physics_engine.set_position(player_1, position)
+
+        if player_2.center_y < -300 or player_2.center_y > 2000:
+            position = 975, 600
+            velocity = 0,0
+            player_2.lives -= 1
+            player_2.damage = 0
+            self.physics_engine.set_velocity(player_2, velocity)
+            self.physics_engine.set_position(player_2, position)
+        print(player_2._get_angle())

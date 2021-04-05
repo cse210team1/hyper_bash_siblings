@@ -35,21 +35,21 @@ class Factory:
         if scene == "menu_scene":
             
 
-            self.cast["start_button"] = [Button("Start Game", 725, 100, 200, 50)]
+            self.cast["start_button"] = [Button("Start Game", 650, 100, 200, 50)]
 
             self.cast["player_1"] = []
-            self.cast["player_1"].append(Button("BOB", 400, 200, 200, 50))
-            self.cast["player_1"].append(Button("ALICE", 400, 275, 200, 50))
-            self.cast["player_1"].append(Button("ROBOT", 400, 350, 200, 50))
-            self.cast["player_1"].append(Button("ZOMBIE", 400, 425, 200, 50))
+            self.cast["player_1"].append(Button("BOB", 325, 200, 200, 50))
+            self.cast["player_1"].append(Button("ALICE", 325, 275, 200, 50))
+            self.cast["player_1"].append(Button("ROBOT", 325, 350, 200, 50))
+            self.cast["player_1"].append(Button("ZOMBIE", 325, 425, 200, 50))
 
             self.cast["player_2"] = []
-            self.cast["player_2"].append(Button("BOB",  1050, 200, 200, 50))
-            self.cast["player_2"].append(Button("ALICE", 1050, 275, 200, 50))
-            self.cast["player_2"].append(Button("ROBOT", 1050, 350, 200, 50))
-            self.cast["player_2"].append(Button("ZOMBIE", 1050, 425, 200, 50))
+            self.cast["player_2"].append(Button("BOB",  975, 200, 200, 50))
+            self.cast["player_2"].append(Button("ALICE", 975, 275, 200, 50))
+            self.cast["player_2"].append(Button("ROBOT", 975, 350, 200, 50))
+            self.cast["player_2"].append(Button("ZOMBIE", 975, 425, 200, 50))
 
-            # self.cast["sprite_player"] = []
+            self.cast["sprite_player"] = []
             # self.cast["sprite_player"].append(Player(self.player_1_choice, 300, 700))
              
 
@@ -60,13 +60,13 @@ class Factory:
         elif scene == "game_scene":
             print("Start making the cast!")
             self.cast["player"] = []
-            self.cast["player"].append(Player(self.player_1_choice, 300, 700))
-            self.cast["player"].append(Player(self.player_2_choice, 600, 700))
+            self.cast["player"].append(Player(self.player_1_choice, 325, 600))
+            self.cast["player"].append(Player(self.player_2_choice, 975, 600))
 
 
             self.cast["stage"] = []
 
-            for x in range(184, 1330, 96):
+            for x in range(184, 1160, 64):
                 brick = Stage(x,32)
                 self.cast["stage"].append(brick)
             
@@ -106,9 +106,12 @@ class Factory:
 
     def set_player_1(self, choice):
         self.player_1_choice = choice
-        self.cast["sprite_player"].append(Player(self.player_1_choice, 300, 700))
+        self.cast["sprite_player"].append(None)
+        self.cast["sprite_player"][0] = Player(self.player_1_choice, 325, 600)
 
     def set_player_2(self, choice):
         self.player_2_choice = choice
+        self.cast["sprite_player"].append(None)
+        self.cast["sprite_player"][1] = Player(self.player_2_choice, 975, 600)
 
             

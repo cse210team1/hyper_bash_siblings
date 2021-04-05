@@ -10,7 +10,7 @@ class DrawActorsAction(Action):
         Controller
     """
     def __init__(self):
-        self.background = arcade.load_texture("art/backgroundColorGrass.png")
+        self.background = arcade.load_texture("art/backgroundcolorgrass.png")
 
     def execute(self, cast, args, director):
 
@@ -32,11 +32,6 @@ class DrawActorsAction(Action):
             pass
 
         try:
-            for paddle in cast["background"]:
-                paddle.draw()
-        except:
-            pass
-        try:
             for paddle in cast["start_button"]:
                 paddle.draw()
         except:
@@ -54,6 +49,12 @@ class DrawActorsAction(Action):
 
         try:
             for paddle in cast["sprite_player"]:
+                paddle.draw()
+        except:
+            pass
+
+        try:
+            for paddle in cast["background"]:
                 paddle.draw()
         except:
             pass

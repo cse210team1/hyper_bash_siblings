@@ -1,6 +1,6 @@
 import os
 
-MAX_X = 1450
+MAX_X = 1300
 MAX_Y = 750
 
 PADDLE_Y = 25
