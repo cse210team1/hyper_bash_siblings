@@ -13,13 +13,13 @@ class StartGameAction(Action):
         if "start_button" in cast.keys():
             print("First if statement")
             start_button = cast["start_button"][0]
-            player_1_bob = cast["player_1"][0]
-            player_1_alice = cast["player_1"][1]
+            player_1_alice = cast["player_1"][0]
+            player_1_bob = cast["player_1"][1]
             player_1_robot = cast["player_1"][2]
             player_1_zombie = cast["player_1"][3]
 
-            player_2_bob = cast["player_2"][0]
-            player_2_alice = cast["player_2"][1]
+            player_2_alice = cast["player_2"][0]
+            player_2_bob = cast["player_2"][1]
             player_2_robot = cast["player_2"][2]
             player_2_zombie = cast["player_2"][3]
 

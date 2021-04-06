@@ -44,7 +44,7 @@ class HandleCollisionsAction(Action):
                 self.physics_engine.apply_impulse(player_2, impulse)
                 
                 #damage:
-                player_2.damage += hit_strength * 0.0001 * player_2.fighter_dict["damage_multiplier"]
+                player_2.damage += player_1.fighter_dict["a_attack"] * player_2.fighter_dict["damage_multiplier"] * constants.hit_multiplier
                 player_1.get_hit()
 
             #Player 1 hits attack b 
@@ -69,7 +69,7 @@ class HandleCollisionsAction(Action):
                 print(hit_up)
                 self.physics_engine.apply_impulse(player_2, impulse)
                 #damage:
-                player_2.damage += hit_strength * 0.0001 * player_2.fighter_dict["damage_multiplier"]
+                player_2.damage += player_1.fighter_dict["b_attack"] * player_2.fighter_dict["damage_multiplier"] * constants.hit_multiplier
                 player_1.get_hit()
 
             # player 2 hits attack a 
@@ -96,7 +96,7 @@ class HandleCollisionsAction(Action):
                 self.physics_engine.apply_impulse(player_1, impulse)
 
                 #damage:
-                player_1.damage += hit_strength * 0.0001 * player_1.fighter_dict["damage_multiplier"]
+                player_1.damage +=  player_2.fighter_dict["a_attack"]  * player_1.fighter_dict["damage_multiplier"] * constants.hit_multiplier
                 player_1.get_hit()
 
 
@@ -123,7 +123,7 @@ class HandleCollisionsAction(Action):
                 self.physics_engine.apply_impulse(player_1, impulse)
 
                 #damage:
-                player_1.damage += hit_strength * 0.0001 * player_1.fighter_dict["damage_multiplier"]
+                player_1.damage +=   player_2.fighter_dict["b_attack"] * player_1.fighter_dict["damage_multiplier"] * constants.hit_multiplier
                 player_1.get_hit()
 
 
