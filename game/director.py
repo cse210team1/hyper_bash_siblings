@@ -59,12 +59,16 @@ class Director(arcade.Window):
             self.l_pressed = True
         elif key == arcade.key.I:
             self.i_pressed = True
+        elif key == arcade.key.K:
+            self.k_pressed = True
         elif key == arcade.key.W:
             self.w_pressed = True
         elif key == arcade.key.D:
             self.d_pressed = True
         elif key == arcade.key.A:
             self.a_pressed = True
+        elif key == arcade.key.S:
+            self.s_pressed = True
 
         elif key == arcade.key.F:
             self.f_pressed = True
@@ -84,13 +88,17 @@ class Director(arcade.Window):
             self.l_pressed = False
         elif key == arcade.key.I:
             self.i_pressed = False
+        elif key == arcade.key.K:
+            self.k_pressed = False
         elif key == arcade.key.W:
             self.w_pressed = False
         elif key == arcade.key.D:
             self.d_pressed = False
         elif key == arcade.key.A:
             self.a_pressed = False
-
+        elif key == arcade.key.S:
+            self.s_pressed = False
+            
         elif key == arcade.key.F:
             self.f_pressed = False
         elif key == arcade.key.V:
