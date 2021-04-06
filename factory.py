@@ -66,7 +66,7 @@ class Factory:
 
             self.cast["stage"] = []
 
-            for x in range(184, 1160, 64):
+            for x in range(184, 1160, 128):
                 brick = Stage(x,32)
                 self.cast["stage"].append(brick)
             
