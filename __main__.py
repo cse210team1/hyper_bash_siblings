@@ -14,18 +14,20 @@ from game.director import Director
 from game.player import Player
 from game.display import Display
 from factory import Factory
+from sound import Sound
+
 
 
 def main():
 
-    
+    sound = Sound()
     factory = Factory()
     cast = factory.create_cast("menu_scene")
     script = factory.create_script("menu_scene")
     
     director = Director(constants.MAX_X, constants.MAX_Y, factory.physics_engine)
     director.direct_scene(cast, script)
-    arcade.play_sound(arcade.load_sound("art/background.wav"))
+    sound.theme_music()
     arcade.run()
 
 if __name__ == "__main__":

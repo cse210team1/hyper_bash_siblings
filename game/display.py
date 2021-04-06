@@ -4,7 +4,10 @@ import arcade
 
 class Display():
     def __init__(self):
+        self.valid = False
+        
         super().__init__()
+
         
         
 
@@ -47,7 +50,24 @@ class Display():
 
         for i in range(1270, lives_2, -35):
             arcade.draw_scaled_texture_rectangle(i, 690, texture, scale, 0)
+
+        # if player_1.lives < 0:
+        #     arcade.draw_text(f"Player 2 Wins!", 150, 300, arcade.color.BLACK, 150, font_name='BERNHC')
+
+        # elif player_2.lives < 0:
+        #     arcade.draw_text(f"Player 1 Wins!", 150, 300, arcade.color.BLACK, 150, font_name='BERNHC')
+
+
+        if not self.valid:
+            if player_1.lives < 0:
+                self.winner = "2"
+                self.valid = True
+            elif player_2.lives < 0:
+                self.winner = "1"
+                self.valid = True
+
         
-        
+        if self.winner != None:
+            arcade.draw_text(f"Player {self.winner} Wins!", 150, 300, arcade.color.BLACK, 150, font_name='BERNHC')
 
 
