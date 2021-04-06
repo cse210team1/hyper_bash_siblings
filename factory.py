@@ -38,16 +38,16 @@ class Factory:
             self.cast["start_button"] = [Button("Start Game", 650, 100, 200, 50)]
 
             self.cast["player_1"] = []
-            self.cast["player_1"].append(Button("BOB", 325, 200, 200, 50))
-            self.cast["player_1"].append(Button("ALICE", 325, 275, 200, 50))
-            self.cast["player_1"].append(Button("ROBOT", 325, 350, 200, 50))
-            self.cast["player_1"].append(Button("ZOMBIE", 325, 425, 200, 50))
+            self.cast["player_1"].append(Button("ALICE", 325, 425, 200, 50))
+            self.cast["player_1"].append(Button("BOB", 325, 350, 200, 50))
+            self.cast["player_1"].append(Button("ROBOT", 325, 275, 200, 50))
+            self.cast["player_1"].append(Button("ZOMBIE", 325, 200, 200, 50))
 
             self.cast["player_2"] = []
-            self.cast["player_2"].append(Button("BOB",  975, 200, 200, 50))
-            self.cast["player_2"].append(Button("ALICE", 975, 275, 200, 50))
-            self.cast["player_2"].append(Button("ROBOT", 975, 350, 200, 50))
-            self.cast["player_2"].append(Button("ZOMBIE", 975, 425, 200, 50))
+            self.cast["player_2"].append(Button("ALICE",  975, 425, 200, 50))
+            self.cast["player_2"].append(Button("BOB", 975, 350, 200, 50))
+            self.cast["player_2"].append(Button("ROBOT", 975, 275, 200, 50))
+            self.cast["player_2"].append(Button("ZOMBIE", 975, 200, 200, 50))
 
             self.cast["sprite_player"] = []
             # self.cast["sprite_player"].append(Player(self.player_1_choice, 300, 700))

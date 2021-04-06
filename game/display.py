@@ -15,8 +15,8 @@ class Display():
     def hud(self, cast):
         player_1 = cast["player"][0]
         player_2 = cast["player"][1]
-        arcade.draw_text(f"{round(player_1.damage * 35)}%", 5,700, arcade.color.BLACK, 30, font_name='BERNHC')
-        player_2_damage = round(player_2.damage * 35)
+        arcade.draw_text(f"{round(player_1.damage * 15)}%", 5,700, arcade.color.BLACK, 30, font_name='BERNHC')
+        player_2_damage = round(player_2.damage * 15)
         if len(str(player_2_damage)) == 3:
             x = 1218
         elif len(str(player_2_damage)) == 1:

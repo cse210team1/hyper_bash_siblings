@@ -43,7 +43,7 @@ class MoveActorsAction(Action):
         elif director.l_pressed and not director.j_pressed:
             # Create a force to the right. Apply it.
             if self.is_on_ground(cast["player"][1]):
-                force = (constants.PLAYER_MOVE_FORCE_ON_GROUND * cast["player"][1].fighter_dict["air_force"], 0)
+                force = (constants.PLAYER_MOVE_FORCE_ON_GROUND * cast["player"][1].fighter_dict["ground_force"], 0)
             else:
                 force = (constants.PLAYER_MOVE_FORCE_IN_AIR * cast["player"][1].fighter_dict["air_force"], 0)
             self.physics_engine.apply_force(cast["player"][1], force)

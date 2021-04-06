@@ -7,6 +7,8 @@ PADDLE_Y = 25
 
 PADDLE_MOVE_SCALE = 5
 
+hit_multiplier = .0875
+
 
 # --- Physics forces. Higher number, faster accelerating.
 
@@ -32,7 +34,7 @@ PLAYER_MAX_VERTICAL_SPEED = 1600
 PLAYER_MOVE_FORCE_ON_GROUND = 2000
 
 # Force applied when moving left/right in the air
-PLAYER_MOVE_FORCE_IN_AIR = 2500
+PLAYER_MOVE_FORCE_IN_AIR = 1300
 
 # Strength of a jump
 PLAYER_JUMP_IMPULSE = 1800
