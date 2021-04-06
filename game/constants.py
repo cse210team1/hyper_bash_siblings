@@ -37,6 +37,9 @@ PLAYER_MOVE_FORCE_IN_AIR = 2500
 # Strength of a jump
 PLAYER_JUMP_IMPULSE = 1800
 
+# Force applied during fast fall
+PLAYER_FAST_FALL_IMPULSE = 50
+
 # Scale sprites up or down
 SPRITE_SCALING_PLAYER = 0.5
 SPRITE_SCALING_TILES = 0.5

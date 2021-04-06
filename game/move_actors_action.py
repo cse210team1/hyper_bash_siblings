@@ -34,18 +34,18 @@ class MoveActorsAction(Action):
         if director.j_pressed and not director.l_pressed:
             # Create a force to the left. Apply it.
             if self.is_on_ground(cast["player"][1]):
-                force = (-constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
+                force = (-constants.PLAYER_MOVE_FORCE_ON_GROUND * cast["player"][1].fighter_dict["ground_force"], 0)
             else:
-                force = (-constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
+                force = (-constants.PLAYER_MOVE_FORCE_IN_AIR * cast["player"][1].fighter_dict["air_force"], 0)
             self.physics_engine.apply_force(cast["player"][1], force)
             # Set friction to zero for the player while moving
             self.physics_engine.set_friction(cast["player"][1], 0)
         elif director.l_pressed and not director.j_pressed:
             # Create a force to the right. Apply it.
             if self.is_on_ground(cast["player"][1]):
-                force = (constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
+                force = (constants.PLAYER_MOVE_FORCE_ON_GROUND * cast["player"][1].fighter_dict["air_force"], 0)
             else:
-                force = (constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
+                force = (constants.PLAYER_MOVE_FORCE_IN_AIR * cast["player"][1].fighter_dict["air_force"], 0)
             self.physics_engine.apply_force(cast["player"][1], force)
             # Set friction to zero for the player while moving
             self.physics_engine.set_friction(cast["player"][1], 0)
@@ -71,24 +71,31 @@ class MoveActorsAction(Action):
 
         if self.is_on_ground(cast["player"][1]):
             cast["player"][1].jumps = 0
+
+        # fast falling
+        if director.k_pressed:
+            impulse = (0, constants.PLAYER_FAST_FALL_IMPULSE *-1)
+            self.physics_engine.apply_impulse(cast["player"][1], impulse)
+
+
         
  # lateral motion
 # player 2
         if director.a_pressed and not director.d_pressed:
             # Create a force to the left. Apply it.
             if self.is_on_ground(cast["player"][0]):
-                force = (-constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
+                force = (-constants.PLAYER_MOVE_FORCE_ON_GROUND * cast["player"][0].fighter_dict["ground_force"], 0)
             else:
-                force = (-constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
+                force = (-constants.PLAYER_MOVE_FORCE_IN_AIR * cast["player"][0].fighter_dict["air_force"], 0)
             self.physics_engine.apply_force(cast["player"][0], force)
             # Set friction to zero for the player while moving
             self.physics_engine.set_friction(cast["player"][0], 0)
         elif director.d_pressed and not director.a_pressed:
             # Create a force to the right. Apply it.
             if self.is_on_ground(cast["player"][0]):
-                force = (constants.PLAYER_MOVE_FORCE_ON_GROUND, 0)
+                force = (constants.PLAYER_MOVE_FORCE_ON_GROUND * cast["player"][0].fighter_dict["ground_force"], 0)
             else:
-                force = (constants.PLAYER_MOVE_FORCE_IN_AIR, 0)
+                force = (constants.PLAYER_MOVE_FORCE_IN_AIR * cast["player"][0].fighter_dict["air_force"], 0)
             self.physics_engine.apply_force(cast["player"][0], force)
             # Set friction to zero for the player while moving
             self.physics_engine.set_friction(cast["player"][0], 0)
@@ -114,3 +121,8 @@ class MoveActorsAction(Action):
 
         if self.is_on_ground(cast["player"][0]):
             cast["player"][0].jumps = 0
+
+        # fast falling
+        if director.s_pressed:
+            impulse = (0, constants.PLAYER_FAST_FALL_IMPULSE *-1)
+            self.physics_engine.apply_impulse(cast["player"][0], impulse)
